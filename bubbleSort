@@ -1,0 +1,30 @@
+/**
+BubbleSort written in PHP for data science computational
+    $list = [1,2,3,3,44,5,6,2,3,2,33,8,8,6,"Kanyin",9,24,21,3,',44,5,102,33,43,"James", "Johnson", "Joe", "John", "Jacob", "Josh","Jasmine"];
+
+    bubbleSort($list);
+    OUTPUT: `Jacob James Jasmine John Johnson Kanyin 1 2 2 2 3 3 3 3 5 5 6 6 8 8 9 21 24 33 33 43 44 44 102`
+    Demo https://3v4l.org/J0c5b
+*/
+
+function bubbleSort( array $lst )
+{
+    $numList = count( $lst );
+    $swapped = false;
+    
+    do{
+        $swapped = false;
+        for( $i=0; $i < $numList - 1; $i++ )
+        {
+            if( $lst[$i] > $lst[$i+1]){
+                $temp = $lst[$i];
+                $lst[$i] = $lst[$i+1];
+                
+                $lst[$i+1] = $temp;
+                $swapped = true;
+            }
+        }
+    } while ( $swapped == true);
+    
+    echo ( implode(" ", $lst));
+}
