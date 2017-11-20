@@ -1,0 +1,38 @@
+
+/**
+LinearSearch | Binary Search | BubbleSort | SelectionSort | Factoral written in PHP
+    $list = [1,2,3,3,44,5,6,2,3,2,33,8,8,6,"Kanyin",9,24,21,3,',44,5,102,33,43,"James", "Johnson", "Joe", "John", "Jacob", "Josh","Jasmine"];
+
+    binarySearch( 4, $list, 6);`
+*/
+
+`function binarySearch( $target, array $list,  $low=null,  $high=null )
+{
+    $numList = count( $list );
+    
+    $low = 0;
+    $high = $numList;
+    
+    if( $low > $high )
+    {
+        echo "Not found!";
+       return false;
+    }
+    
+    $middle = ( $low + $high ) / 2;
+    
+    if( $target == $list[$middle] )
+    {
+        echo "Found $target at $middle";
+        return true;    
+    }
+    else if($target > $list[ $middle ])
+    {
+        return binarySearch( $target, $list, $middle + 1, $high );
+    }
+    else{
+        return binarySearch( $target, $list, $low, $middle - 1 );
+    }
+    
+}`
+
